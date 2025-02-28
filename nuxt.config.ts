@@ -20,8 +20,17 @@ export default defineNuxtConfig({
     },
     baseURL: '/final_cut_flooring/'
   },
-  ssr: false,
+  ssr: true,
   nitro: {
-    preset: 'github-pages'
+    preset: 'github-pages',
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/about',
+        '/gallery',
+        '/contact'
+      ]
+    }
   }
 })
