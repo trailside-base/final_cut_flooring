@@ -1,0 +1,31 @@
+{
+  "name": "final-cut-flooring",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages -d .output/public"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "gh-pages": "^6.3.0",
+    "nuxt": "^3.6.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@types/nodemailer": "^6.4.11",
+    "nodemailer": "^6.9.5"
+  },
+  "resolutions": {
+    "glob": "^8.1.0",
+    "postcss": "^8.4.29"
+  },
+  "overrides": {
+    "glob": "^8.1.0"
+  }
+}
