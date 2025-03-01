@@ -20,8 +20,8 @@
           <div class="w-full md:w-auto text-center mb-4 md:mb-0 flex justify-center md:justify-start order-2">
             <NuxtLink to="/" class="inline-flex items-center">
               <img 
-                src="@/assets/images/logo.png" 
-                alt="Final Cut Flooring" 
+                :src="logoUrl"
+                alt="Final Cut Flooring"
                 class="h-20 md:h-32 w-auto object-contain min-h-[5rem] md:min-h-[8rem]"
               />
             </NuxtLink>
@@ -124,4 +124,6 @@ const navigation = ref([
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' }
 ])
+
+const logoUrl = new URL('@/assets/images/logo.png', import.meta.url).href
 </script> 

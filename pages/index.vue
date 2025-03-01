@@ -68,41 +68,44 @@
 </template>
 
 <script setup>
-import project1 from '~/assets/images/project-1.jpg'
-import project2 from '~/assets/images/project-2.jpg'
-import project3 from '~/assets/images/project-3.jpg'
-import project4 from '~/assets/images/project-4.jpg'
-import project5 from '~/assets/images/project-5.jpg'
-import project6 from '~/assets/images/project-6.jpg'
-import project7 from '~/assets/images/project-7.jpg'
+// Import images using dynamic imports
+const projectImages = {
+  project1: new URL('@/assets/images/project-1.jpg', import.meta.url).href,
+  project2: new URL('@/assets/images/project-2.jpg', import.meta.url).href,
+  project3: new URL('@/assets/images/project-3.jpg', import.meta.url).href,
+  project4: new URL('@/assets/images/project-4.jpg', import.meta.url).href,
+  project5: new URL('@/assets/images/project-5.jpg', import.meta.url).href,
+  project6: new URL('@/assets/images/project-6.jpg', import.meta.url).href,
+  project7: new URL('@/assets/images/project-7.jpg', import.meta.url).href,
+}
 
 const featuredProjects = ref([
   {
-    image: project1,
+    image: projectImages.project1,
     title: 'Project 1'
   },
   {
-    image: project2,
+    image: projectImages.project2,
     title: 'Project 2'
   },
   {
-    image: project3,
+    image: projectImages.project3,
     title: 'Project 3'
   },
   {
-    image: project4,
+    image: projectImages.project4,
     title: 'Project 4'
   },
   {
-    image: project5,
+    image: projectImages.project5,
     title: 'Project 5'
   },
   {
-    image: project6,
+    image: projectImages.project6,
     title: 'Project 6'
   },
   {
-    image: project7,
+    image: projectImages.project7,
     title: 'Project 7'
   }
 ])

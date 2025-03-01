@@ -32,5 +32,28 @@ export default defineNuxtConfig({
         '/contact'
       ]
     }
+  },
+  experimental: {
+    payloadExtraction: false
+  },
+  runtimeConfig: {
+    // Private keys that are exposed to the server
+    emailService: process.env.EMAIL_SERVICE || 'smtp',
+    emailHost: process.env.EMAIL_HOST,
+    emailPort: process.env.EMAIL_PORT,
+    emailUser: process.env.EMAIL_USER,
+    emailPassword: process.env.EMAIL_PASSWORD,
+    emailFrom: process.env.EMAIL_FROM,
+    sendgridApiKey: process.env.SENDGRID_API_KEY,
+    mailgunApiKey: process.env.MAILGUN_API_KEY,
+    contactFormRecipient: process.env.CONTACT_FORM_RECIPIENT,
+    
+    // Public keys that are exposed to the client
+    public: {
+      baseURL: process.env.NODE_ENV === 'production' 
+        ? 'https://trailside-base.github.io/final_cut_flooring'
+        : 'http://localhost:3000',
+      siteUrl: process.env.SITE_URL || 'http://localhost:3000'
+    }
   }
 })

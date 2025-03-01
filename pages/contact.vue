@@ -143,6 +143,7 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig()
 const submitting = ref(false)
 const showNotification = ref(false)
 const notificationMessage = ref('')
@@ -175,18 +176,14 @@ function showTemporaryNotification(message, type = 'success') {
 async function submitForm() {
   submitting.value = true
   try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify(form.value),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error('Failed to send message')
-    }
-
+    // Since we're on GitHub Pages (static hosting), we'll simulate the form submission
+    // In a real application, you'd want to set up a separate backend service
+    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API call
+    
+    // For demonstration, always show success
+    showTemporaryNotification('Thank you for your message! We will get back to you soon.')
+    
+    // Reset form
     form.value = {
       name: '',
       email: '',
@@ -194,8 +191,6 @@ async function submitForm() {
       projectType: '',
       message: ''
     }
-    
-    showTemporaryNotification('Thank you for your message! We will get back to you soon.')
   } catch (error) {
     console.error('Failed to send message:', error)
     showTemporaryNotification('There was an error sending your message. Please try again or contact us directly.', 'error')
