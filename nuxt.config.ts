@@ -23,6 +23,16 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset: 'github-pages',
+    routeRules: {
+      '/**': { prerender: true }
+    },
+    publicAssets: [
+      {
+        baseURL: 'final_cut_flooring',
+        dir: 'public',
+        maxAge: 60 * 60 * 24 * 365 // 1 year
+      }
+    ],
     prerender: {
       crawlLinks: true,
       routes: [
